@@ -1,1 +1,1 @@
-rootProject.name = "kotlin-basic-skeleton"
+rootProject.name = "review-algorithms"
