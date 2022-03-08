@@ -24,7 +24,9 @@ jobs:
         run: |
           MUTATION_TEST=$(./gradlew pitest)     
           SUMMARY=${MUTATION_TEST#*=}     
-          echo "action_test=$SUMMARY" >> $GITHUB_ENV
+          echo 'action_test<<EOF' >> $GITHUB_ENV      
+          $SUMMARY >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
         id: mutation-test-execution
         shell: bash
       - name: Test
