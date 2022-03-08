@@ -25,7 +25,7 @@ jobs:
       - name: Execute PITest
         run: |
           MUTATION_TEST=$(./gradlew pitest)
-          echo "::set-output SUMMARY=${echo "${MUTATION_TEST#*=}"}"
+          echo "::set-output SUMMARY=${MUTATION_TEST#*=}"
         id: mutation-test-execution
         shell: bash
       - name: Comment
