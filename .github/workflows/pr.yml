@@ -22,9 +22,9 @@ jobs:
         run: chmod +x gradlew     
       - name: Execute PITest
         run: |
-          MUTATION_TEST=$(./gradlew pitest)          
-          echo "action_test=$MUTATION_TEST" >> $GITHUB_ENV
-          echo "::set-output SUMMARY=${MUTATION_TEST#*=}"
+          MUTATION_TEST=$(./gradlew pitest)     
+          SUMMARY=${MUTATION_TEST#*=}     
+          echo "action_test=$SUMMARY" >> $GITHUB_ENV
         id: mutation-test-execution
         shell: bash
       - name: Test
