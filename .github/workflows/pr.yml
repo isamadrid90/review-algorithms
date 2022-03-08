@@ -29,6 +29,7 @@ jobs:
       - name: Get PITest summary
         with:
           output: ${{ steps.mutation-test-execution.outputs }}
+
         run: |
           echo "${output#*=}"
         id: mutation-test-summary
