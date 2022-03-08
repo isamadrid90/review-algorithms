@@ -11,7 +11,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -21,22 +20,18 @@ jobs:
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
+      - name: Build with Gradle
+        run: ./gradlew build
       - name: Execute PITest
-        run: | 
-          ./gradlew pitest
-        id: mutation-test-execution
-
-      - name: Get PITest summary
         run: |
-          output_text=${{ steps.mutation-test-execution.outputs }}
-          echo "${output_text#*=}"
-        id: mutation-test-summary
+          MUTATION_TEST=./gradlew pitest
+          echo "::set-output SUMMARY=${echo "${MUTATION_TEST#*=}"}"
+        id: mutation-test-execution
         shell: bash
       - name: Comment
         uses: mshick/add-pr-comment@v1
         with:
-          message: ${{ steps.mutation-test-summary.outputs }}
+          message: ${{ steps.mutation-test-execution.outputs.SUMMARY }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: true # This is the default
