@@ -26,10 +26,8 @@ jobs:
         run: | 
           ./gradlew pitest
         id: mutation-test-execution
-      - name: Get PITest summary
-        with:
-          output_text: ${{ steps.mutation-test-execution.outputs }}
 
+      - name: Get PITest summary
         run: |
           echo "${output_text#*=}"
         id: mutation-test-summary
