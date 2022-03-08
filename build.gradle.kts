@@ -33,6 +33,7 @@ allprojects {
         setProperty("targetClasses", listOf("isamadrid90.*"))
         setProperty("outputFormats", listOf("HTML"))
         setProperty("threads", 2)
+        setProperty("withHistory", false)
     }
 }
 
