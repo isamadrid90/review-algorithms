@@ -4,7 +4,7 @@
 name: Kotlin basic skeleton CI
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -23,3 +23,19 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
+
+      - name: Execute PITest
+        run: | 
+          ./gradlew pitest
+        id: mutation-test-execution
+      - name: Get PITest summary
+        run: |
+          echo "${steps.mutation-test-execution.outputs #*=}"
+        id: mutation-test-summary
+      - name: Comment
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: ${{ steps.mutation-test-summary.outputs }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          allow-repeats: true # This is the default

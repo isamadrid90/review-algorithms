@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.5.21"
     id("com.diffplug.spotless") version "5.7.0"
+    id("info.solidsoft.pitest") version "1.7.0"
     application
 }
 
@@ -22,6 +23,20 @@ dependencies {
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
+
+allprojects {
+    apply(plugin = "info.solidsoft.pitest")
+
+    pitest {
+        setProperty("junit5PluginVersion", "0.12")
+        setProperty("testPlugin", "junit5")
+        setProperty("targetClasses", listOf("com.seat.code.minicampa.*"))
+        setProperty("outputFormats", listOf("XML", "HTML"))
+        setProperty("threads", 2)
+        //setProperty("withHistory", true)
+    }
+}
+
 application {
     mainClass.set("com.codely.demo.CodelyberKt")
 }
