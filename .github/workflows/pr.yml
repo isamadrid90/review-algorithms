@@ -27,8 +27,10 @@ jobs:
           ./gradlew pitest
         id: mutation-test-execution
       - name: Get PITest summary
+        with:
+          output: ${{ steps.mutation-test-execution.outputs }}
         run: |
-          echo "${steps.mutation-test-execution.outputs#*=}"
+          echo "${output#*=}"
         id: mutation-test-summary
       - name: Comment
         uses: mshick/add-pr-comment@v1
