@@ -21,8 +21,6 @@ jobs:
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Build with Gradle
-        run: ./gradlew build
 
       - name: Execute PITest
         run: | 
@@ -30,7 +28,7 @@ jobs:
         id: mutation-test-execution
       - name: Get PITest summary
         run: |
-          echo "${steps.mutation-test-execution.outputs #*=}"
+          echo "${steps.mutation-test-execution.outputs#*=}"
         id: mutation-test-summary
       - name: Comment
         uses: mshick/add-pr-comment@v1
