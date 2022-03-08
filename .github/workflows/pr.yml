@@ -20,6 +20,8 @@ jobs:
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew     
+      - name: Build with Gradle
+        run: ./gradlew clean build
       - name: Execute PITest
         run: |
           MUTATION_TEST=$(./gradlew pitest)     
@@ -28,9 +30,7 @@ jobs:
           echo $SUMMARY >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
         id: mutation-test-execution
-        shell: bash
-      - name: Test
-        run: echo "${{ env.action_test }}"
+        shell: bash     
       - name: Comment
         uses: mshick/add-pr-comment@v1
         with:
