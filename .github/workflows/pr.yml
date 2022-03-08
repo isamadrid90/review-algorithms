@@ -28,10 +28,10 @@ jobs:
         id: mutation-test-execution
       - name: Get PITest summary
         with:
-          output: ${{ steps.mutation-test-execution.outputs }}
+          output_text: ${{ steps.mutation-test-execution.outputs }}
 
         run: |
-          echo "${output#*=}"
+          echo "${output_text#*=}"
         id: mutation-test-summary
       - name: Comment
         uses: mshick/add-pr-comment@v1
