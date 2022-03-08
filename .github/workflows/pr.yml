@@ -21,10 +21,10 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew assemble
       - name: Execute PITest
         run: |
-          MUTATION_TEST=./gradlew pitest
+          MUTATION_TEST=${./gradlew pitest}
           echo "::set-output SUMMARY=${echo "${MUTATION_TEST#*=}"}"
         id: mutation-test-execution
         shell: bash
