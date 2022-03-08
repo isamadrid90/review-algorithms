@@ -24,10 +24,14 @@ jobs:
         run: ./gradlew clean build
       - name: Execute PITest
         run: |
+          export MA=te
+          echo "::set-env name=MA::$MA"
           MUTATION_TEST=$(./gradlew pitest)
           echo "::set-output SUMMARY=${MUTATION_TEST#*=}"
         id: mutation-test-execution
         shell: bash
+      - name: Test
+        run: echo $MA
       - name: Comment
         uses: mshick/add-pr-comment@v1
         with:
