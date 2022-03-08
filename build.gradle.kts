@@ -33,7 +33,6 @@ allprojects {
         setProperty("targetClasses", listOf("com.seat.code.minicampa.*"))
         setProperty("outputFormats", listOf("XML", "HTML"))
         setProperty("threads", 2)
-        //setProperty("withHistory", true)
     }
 }
 
