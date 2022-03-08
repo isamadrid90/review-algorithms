@@ -26,7 +26,7 @@ jobs:
         run: |
           MUTATION_TEST=$(./gradlew pitest)     
           SUMMARY=${MUTATION_TEST#*=}     
-          echo 'action_test<<EOF' >> $GITHUB_ENV      
+          echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
           echo $SUMMARY >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
         id: mutation-test-execution
@@ -34,7 +34,7 @@ jobs:
       - name: Comment
         uses: mshick/add-pr-comment@v1
         with:
-          message: ${{ env.action_test }}
+          message: ${{ env.summary_mutation }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: true # This is the default
