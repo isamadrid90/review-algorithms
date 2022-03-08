@@ -30,8 +30,8 @@ allprojects {
     pitest {
         setProperty("junit5PluginVersion", "0.12")
         setProperty("testPlugin", "junit5")
-        setProperty("targetClasses", listOf("com.seat.code.minicampa.*"))
-        setProperty("outputFormats", listOf("XML", "HTML"))
+        setProperty("targetClasses", listOf("isamadrid90.*"))
+        setProperty("outputFormats", listOf("HTML"))
         setProperty("threads", 2)
     }
 }
