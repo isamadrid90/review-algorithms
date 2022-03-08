@@ -19,9 +19,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: Build with Gradle
-        run: ./gradlew clean build
+        run: chmod +x gradlew     
       - name: Execute PITest
         run: |
           MUTATION_TEST=$(./gradlew pitest)          
