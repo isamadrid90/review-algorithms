@@ -25,7 +25,7 @@ jobs:
       - name: Execute PITest
         run: |
           MUTATION_TEST=$(./gradlew pitest)     
-          SUMMARY=${MUTATION_TEST#*=}     
+          SUMMARY=${MUTATION_TEST##*=}     
           echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
           echo $SUMMARY >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
