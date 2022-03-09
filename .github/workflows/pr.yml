@@ -12,11 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'adopt'
+
       - name: Load gradle cache
         uses: actions/cache@v2
         with:
@@ -27,18 +29,22 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew     
+        run: chmod +x gradlew
+
       - name: Build with Gradle
         run: ./gradlew clean build
+
   mutation_test:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
+
         - name: Set up JDK 11
           uses: actions/setup-java@v2
           with:
             java-version: '11'
             distribution: 'adopt'
+
         - name: Grant execute permission for gradlew
           run: chmod +x gradlew
 
@@ -67,6 +73,7 @@ jobs:
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             delete_user_name: 'github-actions[bot]'
+
         - name: Comment
           uses: mshick/add-pr-comment@v1
           with:
