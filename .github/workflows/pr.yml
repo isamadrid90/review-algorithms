@@ -41,8 +41,10 @@ jobs:
             distribution: 'adopt'
         - name: Grant execute permission for gradlew
           run: chmod +x gradlew
+
         - name: Build with Gradle
           run: ./gradlew clean assemble
+
         - name: Execute PITest
           run: |
             MUTATION_TEST=$(./gradlew pitest)     
@@ -52,6 +54,14 @@ jobs:
             echo 'EOF' >> $GITHUB_ENV
           id: mutation-test-execution
           shell: bash
+
+        - name: Upload report
+          uses: actions/upload-artifact@v2
+          with:
+            name: reports-artifact
+            path: api/build/reports/pitest
+            retention-days: 1
+
         - name: Comment
           uses: mshick/add-pr-comment@v1
           with:
