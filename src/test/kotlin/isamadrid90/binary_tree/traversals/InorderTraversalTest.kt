@@ -30,7 +30,7 @@ class InorderTraversalTest {
 
         val result = InorderTraversal().execute(tree)
 
-        assertEquals(listOf(1, 2, 3), result)
+        assertEquals(listOf( 3), result)
     }
 
     @Test
