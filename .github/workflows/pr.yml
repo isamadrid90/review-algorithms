@@ -62,6 +62,11 @@ jobs:
             path: build/reports/pitest
             retention-days: 1
 
+        - name: Delete old comments
+          uses: izhangzhihao/delete-comment@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            delete_user_name: 'github-actions[bot]'
         - name: Comment
           uses: mshick/add-pr-comment@v1
           with:
