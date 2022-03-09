@@ -45,12 +45,6 @@ jobs:
             java-version: '11'
             distribution: 'adopt'
 
-        - name: Grant execute permission for gradlew
-          run: chmod +x gradlew
-
-        - name: Build with Gradle
-          run: ./gradlew clean assemble
-
         - name: Execute PITest
           uses: isamadrid90/gradle-pitest-comment-action@main
           with:
