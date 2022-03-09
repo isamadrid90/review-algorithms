@@ -36,7 +36,8 @@ jobs:
         with:
           message: |
             ${{ env.summary_mutation }}
-            Check artifacts for the complete report
+            
+            *Check artifacts for the complete report*
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: true # This is the default
