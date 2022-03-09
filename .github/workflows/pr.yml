@@ -26,7 +26,8 @@ jobs:
         run: |
           MUTATION_TEST=$(./gradlew pitest)     
           OUTPUT_SHORT=${MUTATION_TEST##*=}     
-          SUMMARY=${OUTPUT_SHORT%%B*}   
+          OUTPUT_CLEAN=${OUTPUT_SHORT//>>/$eol}    
+          SUMMARY=${OUTPUT_CLEAN%%B*}   
           echo 'summary_mutation<<EOF' >> $GITHUB_ENV      
           echo $SUMMARY >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
