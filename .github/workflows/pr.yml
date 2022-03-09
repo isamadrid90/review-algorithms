@@ -51,3 +51,4 @@ jobs:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             reports-retention: 1
             reports-path: "build/reports/pitest"
+            delete-old-comments: false
