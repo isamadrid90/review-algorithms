@@ -52,4 +52,4 @@ jobs:
           run: ./gradlew clean assemble
 
         - name: Execute PITest
-          uses: actions/gradle-pitest-comment-action@v1
+          uses: isamadrid90/gradle-pitest-comment-action@v1
