@@ -52,4 +52,6 @@ jobs:
           run: ./gradlew clean assemble
 
         - name: Execute PITest
-          uses: isamadrid90/gradle-pitest-comment-action@v0
+          uses: isamadrid90/gradle-pitest-comment-action@main
+          with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
