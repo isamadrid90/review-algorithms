@@ -49,3 +49,5 @@ jobs:
           uses: isamadrid90/gradle-pitest-comment-action@main
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
+            reports-retention: 1
+            reports-path: "build/reports/pitest"
