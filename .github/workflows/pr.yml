@@ -46,6 +46,6 @@ jobs:
             distribution: 'adopt'
 
         - name: Execute PITest
-          uses: isamadrid90/gradle-pitest-comment-action@add-working-directory
+          uses: isamadrid90/gradle-pitest-comment-action@repeat-comments-input
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
