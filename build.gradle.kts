@@ -19,22 +19,18 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:5.7.0")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.3.0")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
-allprojects {
-    apply(plugin = "info.solidsoft.pitest")
-
-    pitest {
-        setProperty("junit5PluginVersion", "0.12")
-        setProperty("testPlugin", "junit5")
-        setProperty("targetClasses", listOf("isamadrid90.*"))
-        setProperty("outputFormats", listOf("HTML"))
-        setProperty("threads", 2)
-        setProperty("withHistory", false)
-    }
+pitest {
+    setProperty("junit5PluginVersion", "0.12")
+    setProperty("testPlugin", "junit5")
+    setProperty("targetClasses", listOf("org.review_algorithms.*"))
+    setProperty("outputFormats", listOf("HTML"))
+    setProperty("threads", 2)
+    setProperty("withHistory", true)
 }
 
 application {
