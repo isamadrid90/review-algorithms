@@ -46,7 +46,7 @@ jobs:
             distribution: 'adopt'
 
         - name: Execute PITest
-          uses: isamadrid90/gradle-pitest-comment-action@1.0.0
+          uses: isamadrid90/gradle-pitest-comment-action@add-working-directory
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             delete-old-comments: "true"
