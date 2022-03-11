@@ -1,9 +1,9 @@
-package isamadrid90.binary_tree.traversals
+package org.review_algorithms.binary_tree.traversals
 
-import isamadrid90.binary_tree.Node
-import isamadrid90.binary_tree.Tree
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
+import org.review_algorithms.binary_tree.Node
+import org.review_algorithms.binary_tree.Tree
 
 class PostorderTraversalTest {
 
