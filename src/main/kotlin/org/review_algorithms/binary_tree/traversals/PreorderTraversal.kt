@@ -1,7 +1,7 @@
-package isamadrid90.binary_tree.traversals
+package org.review_algorithms.binary_tree.traversals
 
-import isamadrid90.binary_tree.Node
-import isamadrid90.binary_tree.Tree
+import org.review_algorithms.binary_tree.Node
+import org.review_algorithms.binary_tree.Tree
 class PreorderTraversal {
     fun <T> execute(tree: Tree<T>): List<T> {
         return traverseTree(tree.root, listOf())

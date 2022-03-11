@@ -24,17 +24,13 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
-allprojects {
-    apply(plugin = "info.solidsoft.pitest")
-
-    pitest {
-        setProperty("junit5PluginVersion", "0.12")
-        setProperty("testPlugin", "junit5")
-        setProperty("targetClasses", listOf("isamadrid90.*"))
-        setProperty("outputFormats", listOf("HTML"))
-        setProperty("threads", 2)
-        setProperty("withHistory", false)
-    }
+pitest {
+    setProperty("junit5PluginVersion", "0.12")
+    setProperty("testPlugin", "junit5")
+    setProperty("targetClasses", listOf("org.review_algorithms.*"))
+    setProperty("outputFormats", listOf("HTML"))
+    setProperty("threads", 2)
+    setProperty("withHistory", true)
 }
 
 application {
