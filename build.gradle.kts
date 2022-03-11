@@ -19,7 +19,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.3.0")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:5.7.0")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
