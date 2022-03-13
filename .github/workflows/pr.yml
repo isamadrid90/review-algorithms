@@ -49,5 +49,4 @@ jobs:
           uses: isamadrid90/gradle-pitest-comment-action@v1.0.0-beta
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
-            working-directory: api
 
